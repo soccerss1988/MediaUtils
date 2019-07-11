@@ -14,23 +14,45 @@ class CameraViewController: UIViewController {
     
     @IBOutlet weak var photoDisplay: UIImageView!
     @IBOutlet weak var preview: UIView!
+    @IBOutlet weak var captureButton: UIButton!
     var mediaOperator = MediaOperator().instance()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.preview.layer.addSublayer(self.mediaOperator.previewLayer)
+        self.preview.layer.insertSublayer(self.mediaOperator.previewLayer, at: 0)
+        self.captureButtonStyle()
+        self.mediaOperator.delegate = self
     }
     
-    @IBAction func start(_ sender: Any) {
+    func captureButtonStyle() {
+        self.captureButton.layer.cornerRadius = min(captureButton.frame.width, captureButton.frame.height) / 2
+        self.captureButton.layer.borderWidth = 2
+        self.captureButton.layer.borderColor = UIColor.darkGray.cgColor
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         self.mediaOperator.startCapture()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.mediaOperator.stopCapture()
     }
     
     @IBAction func take(_ sender: Any) {
         self.mediaOperator.take()
     }
     
-    @IBAction func stop(_ sender: Any) {
-        self.mediaOperator.stopCapture()
+    @IBAction func switchInputCarmera(_ sender: Any) {
+        //前後相機切換
+    }
+    
+    @IBAction func CarmeraSettingOptions(_ sender: Any) {
+        
+    }
+    
+    @IBAction func flashMode(_ sender: Any) {
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -38,3 +60,8 @@ class CameraViewController: UIViewController {
     }
 }
 
+extension CameraViewController : MediaOperatorDelegate {
+    func receveCapturePhoto(image: UIImage) {
+        self.photoDisplay.image = image
+    }
+}

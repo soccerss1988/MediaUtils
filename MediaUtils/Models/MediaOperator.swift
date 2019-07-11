@@ -9,12 +9,16 @@
 import UIKit
 import AVFoundation
 import ImageIO
-
+protocol MediaOperatorDelegate {
+    func receveCapturePhoto(image: UIImage)
+}
 class MediaOperator: NSObject {
     
     var carmerSession = AVCaptureSession()
     var device : AVCaptureDevice? = AVCaptureDevice.default(for: .video)
     var photoSetting : AVCapturePhotoSettings?
+    var displayImage : UIImage?
+    var delegate : MediaOperatorDelegate?
     
     lazy var avInput: AVCaptureInput? = {
         if let device = self.device {
@@ -62,6 +66,7 @@ class MediaOperator: NSObject {
             let photoSetting = AVCapturePhotoSettings(from: currentPhotoSetting)
             let photoOutput = self.avOutput as! AVCapturePhotoOutput
             photoOutput.capturePhoto(with: photoSetting, delegate: self)
+            
         }
     }
 }
@@ -73,10 +78,20 @@ extension MediaOperator : AVCapturePhotoCaptureDelegate {
         } else {
             if let cgImage = photo.cgImageRepresentation() {
                 let image : UIImage = UIImage(cgImage: cgImage.takeUnretainedValue())
-                //                self.photoDisplay.image = image
                 let imageData = image.jpegData(compressionQuality: 1)
-                let filepath = NSHomeDirectory() + "Documents/photo1.jpg"
-                try? imageData?.write(to: URL(string: filepath)!)
+                let filepath = NSHomeDirectory() + "/Documents/photo1.jpg"
+                do {
+                   try imageData?.write(to: URL(fileURLWithPath: filepath))
+                    print("photo path  = \(filepath)")
+                    
+                    guard self.delegate == nil else {
+                        self.delegate?.receveCapturePhoto(image: image)
+                        return
+                    }
+                    
+                } catch  {
+                    print(error.localizedDescription)
+                }
             }
         }
     }
