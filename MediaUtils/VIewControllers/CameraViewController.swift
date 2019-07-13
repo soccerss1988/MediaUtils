@@ -22,6 +22,7 @@ class CameraViewController: UIViewController {
         self.preview.layer.insertSublayer(self.mediaOperator.previewLayer, at: 0)
         self.captureButtonStyle()
         self.mediaOperator.delegate = self
+        test()
     }
     
     func captureButtonStyle() {
@@ -57,6 +58,15 @@ class CameraViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         self.mediaOperator.previewLayer.frame = self.preview.bounds
+    }
+    
+    func test() {
+        let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes:
+            [.builtInTrueDepthCamera, .builtInDualCamera, .builtInWideAngleCamera],mediaType: .video, position: .unspecified)
+        print(discoverySession.devices)
+        if let backCam = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) {
+            print(backCam)
+        }
     }
 }
 

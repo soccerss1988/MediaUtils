@@ -15,6 +15,8 @@
 		0966FC3E22B7C4680025D732 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966FC3D22B7C4680025D732 /* VideoViewController.swift */; };
 		0966FC4022B7C4820025D732 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966FC3F22B7C4820025D732 /* AudioViewController.swift */; };
 		0966FC4322B7C4A70025D732 /* MediaOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966FC4222B7C4A70025D732 /* MediaOperator.swift */; };
+		09BEF40F22D9B915007BAD12 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BEF40E22D9B915007BAD12 /* Device.swift */; };
+		09BEF41222D9D17C007BAD12 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BEF41122D9D17C007BAD12 /* CoreMIDI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		0966FC3D22B7C4680025D732 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		0966FC3F22B7C4820025D732 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		0966FC4222B7C4A70025D732 /* MediaOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaOperator.swift; sourceTree = "<group>"; };
+		09BEF40E22D9B915007BAD12 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
+		09BEF41122D9D17C007BAD12 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09BEF41222D9D17C007BAD12 /* CoreMIDI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +51,7 @@
 			children = (
 				0966FC2922B7C25D0025D732 /* MediaUtils */,
 				0966FC2822B7C25D0025D732 /* Products */,
+				09BEF41022D9D17C007BAD12 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,8 +91,17 @@
 			isa = PBXGroup;
 			children = (
 				0966FC4222B7C4A70025D732 /* MediaOperator.swift */,
+				09BEF40E22D9B915007BAD12 /* Device.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		09BEF41022D9D17C007BAD12 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				09BEF41122D9D17C007BAD12 /* CoreMIDI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +178,7 @@
 				0966FC2D22B7C25D0025D732 /* CameraViewController.swift in Sources */,
 				0966FC4022B7C4820025D732 /* AudioViewController.swift in Sources */,
 				0966FC4322B7C4A70025D732 /* MediaOperator.swift in Sources */,
+				09BEF40F22D9B915007BAD12 /* Device.swift in Sources */,
 				0966FC2B22B7C25D0025D732 /* AppDelegate.swift in Sources */,
 				0966FC3E22B7C4680025D732 /* VideoViewController.swift in Sources */,
 			);
@@ -321,7 +337,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tw.com.jHuang.MediaUtils;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -340,7 +356,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tw.com.jHuang.MediaUtils;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
