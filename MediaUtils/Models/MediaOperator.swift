@@ -31,16 +31,21 @@ class MediaOperator: NSObject {
         return self.getCamera(position: .back) ?? nil
     }()
     
+    var currentInputDevice : AVCaptureDevice?
+    
     //Instance Session
     var captureSession = AVCaptureSession()
     
     //Setting Input defult from backCamera
     lazy var captureDefultInput : AVCaptureInput? = {
         if let frontCamera  = self.backCamera {
+            self.currentInputDevice = frontCamera
             return try? AVCaptureDeviceInput.init(device: frontCamera)
         }
         return nil
     }()
+    
+    var currentInput : AVCaptureInput?
     
     //Setting Output
     lazy var avOutput : AVCaptureOutput = {
@@ -66,6 +71,7 @@ class MediaOperator: NSObject {
     func instance() -> MediaOperator {
         
         if let input = self.captureDefultInput {
+            self.currentInput = input
             self.captureSession.addInput(input as AVCaptureInput)
         }
         self.captureSession.addOutput(self.avOutput)
@@ -102,7 +108,43 @@ class MediaOperator: NSObject {
     }
     
     func swithInputCamera() {
-        
+        if let currentDevice = self.currentInputDevice {
+            
+            switch currentDevice.position {
+            case .front:
+                // turn to back camera
+                if let input = self.currentInput , let bcakCamera = self.backCamera {
+                    self.captureSession.removeInput(input)
+                    if let newInput = try? AVCaptureDeviceInput(device: bcakCamera) {
+                        if self.captureSession.canAddInput(newInput) {
+                            self.currentInputDevice = bcakCamera
+                            self.currentInput = newInput
+                            self.captureSession.addInput(newInput)
+                            
+                        }
+                    }
+                }
+                
+                
+            case .back:
+                
+                // turn to back camera
+                if let input = self.currentInput , let fontCamera = self.fontCamera {
+                    self.captureSession.removeInput(input)
+                    
+                    if let newInput = try? AVCaptureDeviceInput(device: fontCamera) {
+                        if self.captureSession.canAddInput(newInput) {
+                            self.currentInputDevice = fontCamera
+                            self.currentInput = newInput
+                            self.captureSession.addInput(newInput)
+                        }
+                    }
+                }
+                
+            default:
+                break;
+            }
+        }
     }
     
     func modifyFlashMode() {

@@ -46,6 +46,7 @@ class CameraViewController: UIViewController {
     
     @IBAction func switchInputCarmera(_ sender: Any) {
         //前後相機切換
+        self.mediaOperator.swithInputCamera()
     }
     
     @IBAction func CarmeraSettingOptions(_ sender: Any) {
