@@ -49,15 +49,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iTk-NF-YCa">
-                                <rect key="frame" x="0.0" y="43" width="375" height="478"/>
+                                <rect key="frame" x="0.0" y="48" width="375" height="473"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0MX-BJ-EJT">
-                                <rect key="frame" x="340" y="15" width="20" height="20"/>
+                                <rect key="frame" x="335" y="10" width="30" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="QWj-3U-jEC"/>
-                                    <constraint firstAttribute="height" constant="20" id="UGv-ZN-jm7"/>
+                                    <constraint firstAttribute="width" constant="30" id="QWj-3U-jEC"/>
+                                    <constraint firstAttribute="height" constant="30" id="UGv-ZN-jm7"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" backgroundImage="switchCamera"/>
@@ -66,11 +66,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWW-wW-HXY">
-                                <rect key="frame" x="15" y="15" width="20" height="20"/>
+                                <rect key="frame" x="15" y="10" width="30" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="WPW-Tz-WPV"/>
-                                    <constraint firstAttribute="height" constant="20" id="Yce-XL-vBF"/>
+                                    <constraint firstAttribute="width" constant="30" id="WPW-Tz-WPV"/>
+                                    <constraint firstAttribute="height" constant="30" id="Yce-XL-vBF"/>
                                 </constraints>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" backgroundImage="flashAuto"/>
@@ -112,32 +112,44 @@
                                     <action selector="CarmeraSettingOptions:" destination="Xzd-Rm-nhS" eventType="touchUpInside" id="TEG-lp-aum"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HYC-Wh-QfP">
+                                <rect key="frame" x="53" y="10" width="242" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.066046758483700396" green="0.16652054485639459" blue="0.29002573829011868" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="0MX-BJ-EJT" firstAttribute="top" secondItem="0c4-xE-USL" secondAttribute="top" constant="15" id="2Pf-Gf-VcA"/>
+                            <constraint firstItem="HYC-Wh-QfP" firstAttribute="height" secondItem="tWW-wW-HXY" secondAttribute="height" id="2Iq-H5-Wna"/>
+                            <constraint firstItem="0MX-BJ-EJT" firstAttribute="top" secondItem="0c4-xE-USL" secondAttribute="top" constant="10" id="2Pf-Gf-VcA"/>
+                            <constraint firstItem="HYC-Wh-QfP" firstAttribute="top" secondItem="0c4-xE-USL" secondAttribute="top" constant="10" id="4xk-ea-wXT"/>
                             <constraint firstItem="oZB-Ec-KHM" firstAttribute="top" secondItem="iTk-NF-YCa" secondAttribute="bottom" constant="15" id="Euv-H6-j54"/>
                             <constraint firstItem="tWW-wW-HXY" firstAttribute="leading" secondItem="0c4-xE-USL" secondAttribute="leading" constant="15" id="JtL-SX-G5q"/>
+                            <constraint firstItem="HYC-Wh-QfP" firstAttribute="leading" secondItem="tWW-wW-HXY" secondAttribute="trailing" constant="8" id="Kra-Ko-Rvh"/>
                             <constraint firstItem="m7e-Nt-Lb2" firstAttribute="leading" secondItem="0c4-xE-USL" secondAttribute="leading" constant="17" id="ODQ-IU-uWB"/>
                             <constraint firstItem="0c4-xE-USL" firstAttribute="bottom" secondItem="m7e-Nt-Lb2" secondAttribute="bottom" constant="17" id="OpJ-ht-xo0"/>
                             <constraint firstItem="oZB-Ec-KHM" firstAttribute="centerX" secondItem="JRA-H2-nhe" secondAttribute="centerX" id="VJz-oH-14o"/>
                             <constraint firstItem="0c4-xE-USL" firstAttribute="bottom" secondItem="NDq-Xz-F60" secondAttribute="bottom" constant="24" id="WRq-vg-XVW"/>
-                            <constraint firstItem="tWW-wW-HXY" firstAttribute="top" secondItem="0c4-xE-USL" secondAttribute="top" constant="15" id="WnG-pf-lDe"/>
+                            <constraint firstItem="tWW-wW-HXY" firstAttribute="top" secondItem="0c4-xE-USL" secondAttribute="top" constant="10" id="WnG-pf-lDe"/>
                             <constraint firstItem="m7e-Nt-Lb2" firstAttribute="top" secondItem="iTk-NF-YCa" secondAttribute="bottom" constant="10" id="XPb-mx-H8d"/>
+                            <constraint firstItem="HYC-Wh-QfP" firstAttribute="bottom" secondItem="tWW-wW-HXY" secondAttribute="bottom" id="YFk-LM-pT6"/>
                             <constraint firstItem="iTk-NF-YCa" firstAttribute="leading" secondItem="0c4-xE-USL" secondAttribute="leading" id="aVd-qh-jhr"/>
                             <constraint firstItem="0c4-xE-USL" firstAttribute="bottom" secondItem="oZB-Ec-KHM" secondAttribute="bottom" constant="15" id="fZu-qC-DOf"/>
-                            <constraint firstItem="0c4-xE-USL" firstAttribute="trailing" secondItem="0MX-BJ-EJT" secondAttribute="trailing" constant="15" id="fhv-NU-h5e"/>
+                            <constraint firstItem="0c4-xE-USL" firstAttribute="trailing" secondItem="0MX-BJ-EJT" secondAttribute="trailing" constant="10" id="fhv-NU-h5e"/>
                             <constraint firstItem="0c4-xE-USL" firstAttribute="trailing" secondItem="NDq-Xz-F60" secondAttribute="trailing" constant="16" id="izR-cz-tLd"/>
                             <constraint firstItem="iTk-NF-YCa" firstAttribute="top" secondItem="0MX-BJ-EJT" secondAttribute="bottom" constant="8" id="rUD-6z-IIu"/>
                             <constraint firstItem="iTk-NF-YCa" firstAttribute="trailing" secondItem="0c4-xE-USL" secondAttribute="trailing" id="xm9-LQ-Zht"/>
+                            <constraint firstItem="0MX-BJ-EJT" firstAttribute="leading" secondItem="HYC-Wh-QfP" secondAttribute="trailing" constant="40" id="zQh-ei-xs9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0c4-xE-USL"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Camera" id="EEG-mw-ztB"/>
                     <connections>
                         <outlet property="captureButton" destination="oZB-Ec-KHM" id="q6w-Je-wYA"/>
+                        <outlet property="flashButton" destination="tWW-wW-HXY" id="g6X-PY-LH0"/>
+                        <outlet property="flashModeView" destination="HYC-Wh-QfP" id="agH-6C-iff"/>
                         <outlet property="photoDisplay" destination="m7e-Nt-Lb2" id="gTx-2I-vqV"/>
                         <outlet property="preview" destination="iTk-NF-YCa" id="KoK-GJ-g84"/>
+                        <outlet property="switchCameraBurron" destination="0MX-BJ-EJT" id="dqw-ig-7c5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6NW-ZY-ATt" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -51,11 +51,13 @@ class MediaOperator: NSObject {
     lazy var avOutput : AVCaptureOutput = {
         let photoOutput = AVCapturePhotoOutput()
         let photoSetting = AVCapturePhotoSettings()
-        photoSetting.flashMode = AVCaptureDevice.FlashMode.off
+        photoSetting.flashMode = self.currentFalshMode
         photoOutput.photoSettingsForSceneMonitoring = photoSetting
         self.photoSetting = photoSetting
         return photoOutput
     }()
+    
+    var currentFalshMode : AVCaptureDevice.FlashMode  = .off
     
     //PhotoSetting
     var photoSetting : AVCapturePhotoSettings?
@@ -147,8 +149,8 @@ class MediaOperator: NSObject {
         }
     }
     
-    func modifyFlashMode() {
-        
+    func modifyFlashMode(flashMode: AVCaptureDevice.FlashMode ) {
+        self.photoSetting?.flashMode = flashMode
     }
 }
 
