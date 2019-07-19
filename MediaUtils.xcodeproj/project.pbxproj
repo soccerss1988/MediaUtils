@@ -15,6 +15,8 @@
 		0966FC3E22B7C4680025D732 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966FC3D22B7C4680025D732 /* VideoViewController.swift */; };
 		0966FC4022B7C4820025D732 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966FC3F22B7C4820025D732 /* AudioViewController.swift */; };
 		0966FC4322B7C4A70025D732 /* MediaOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966FC4222B7C4A70025D732 /* MediaOperator.swift */; };
+		09B7CC1F22DF65A60012D838 /* FlashModeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B7CC1E22DF65A60012D838 /* FlashModeBar.swift */; };
+		09B7CC2122DF65BB0012D838 /* FlashModeBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09B7CC2022DF65BB0012D838 /* FlashModeBar.xib */; };
 		09BEF40F22D9B915007BAD12 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BEF40E22D9B915007BAD12 /* Device.swift */; };
 		09BEF41222D9D17C007BAD12 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BEF41122D9D17C007BAD12 /* CoreMIDI.framework */; };
 /* End PBXBuildFile section */
@@ -30,6 +32,8 @@
 		0966FC3D22B7C4680025D732 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		0966FC3F22B7C4820025D732 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		0966FC4222B7C4A70025D732 /* MediaOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaOperator.swift; sourceTree = "<group>"; };
+		09B7CC1E22DF65A60012D838 /* FlashModeBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashModeBar.swift; sourceTree = "<group>"; };
+		09B7CC2022DF65BB0012D838 /* FlashModeBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlashModeBar.xib; sourceTree = "<group>"; };
 		09BEF40E22D9B915007BAD12 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		09BEF41122D9D17C007BAD12 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -66,6 +70,7 @@
 		0966FC2922B7C25D0025D732 /* MediaUtils */ = {
 			isa = PBXGroup;
 			children = (
+				09B7CC1D22DF65780012D838 /* Views */,
 				0966FC4122B7C48B0025D732 /* Models */,
 				0966FC3C22B7C41D0025D732 /* VIewControllers */,
 				0966FC2A22B7C25D0025D732 /* AppDelegate.swift */,
@@ -94,6 +99,15 @@
 				09BEF40E22D9B915007BAD12 /* Device.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		09B7CC1D22DF65780012D838 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				09B7CC1E22DF65A60012D838 /* FlashModeBar.swift */,
+				09B7CC2022DF65BB0012D838 /* FlashModeBar.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		09BEF41022D9D17C007BAD12 /* Frameworks */ = {
@@ -163,6 +177,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0966FC3522B7C25F0025D732 /* LaunchScreen.storyboard in Resources */,
+				09B7CC2122DF65BB0012D838 /* FlashModeBar.xib in Resources */,
 				0966FC3222B7C25F0025D732 /* Assets.xcassets in Resources */,
 				0966FC3022B7C25D0025D732 /* Main.storyboard in Resources */,
 			);
@@ -181,6 +196,7 @@
 				09BEF40F22D9B915007BAD12 /* Device.swift in Sources */,
 				0966FC2B22B7C25D0025D732 /* AppDelegate.swift in Sources */,
 				0966FC3E22B7C4680025D732 /* VideoViewController.swift in Sources */,
+				09B7CC1F22DF65A60012D838 /* FlashModeBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

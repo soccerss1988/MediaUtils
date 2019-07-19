@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14835.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14790.5"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FlashModeBar" customModule="MediaUtils" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="498" height="65"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPW-tk-TG0">
+                    <rect key="frame" x="30" y="0.0" width="65" height="65"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="OPW-tk-TG0" secondAttribute="height" multiplier="1:1" id="VIu-bE-qLO"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" backgroundImage="flashAuto"/>
+                    <connections>
+                        <action selector="selectAutoMode:" destination="iN0-l3-epB" eventType="touchUpInside" id="lo7-gl-SzY"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3qR-do-1aG">
+                    <rect key="frame" x="216.5" y="0.0" width="65" height="65"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" backgroundImage="flashOn"/>
+                    <connections>
+                        <action selector="selectOnMode:" destination="iN0-l3-epB" eventType="touchUpInside" id="iRl-E0-XHY"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNU-QU-D7Z">
+                    <rect key="frame" x="403" y="0.0" width="65" height="65"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="BNU-QU-D7Z" secondAttribute="height" multiplier="1:1" id="2kN-zh-QO6"/>
+                    </constraints>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" backgroundImage="flashOff"/>
+                    <connections>
+                        <action selector="selectOFFMode:" destination="iN0-l3-epB" eventType="touchUpInside" id="hqV-8b-344"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="OPW-tk-TG0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Iw8-x6-51T"/>
+                <constraint firstItem="OPW-tk-TG0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="NUD-eV-uvF"/>
+                <constraint firstAttribute="bottom" secondItem="BNU-QU-D7Z" secondAttribute="bottom" id="UUp-N6-OTm"/>
+                <constraint firstItem="BNU-QU-D7Z" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="VbH-Ce-oIb"/>
+                <constraint firstItem="OPW-tk-TG0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ZE0-fA-ZQG"/>
+                <constraint firstAttribute="bottom" secondItem="OPW-tk-TG0" secondAttribute="bottom" id="dK7-2o-f3K"/>
+                <constraint firstAttribute="bottom" secondItem="OPW-tk-TG0" secondAttribute="bottom" id="gYk-cX-APf"/>
+                <constraint firstItem="3qR-do-1aG" firstAttribute="width" secondItem="OPW-tk-TG0" secondAttribute="width" id="h74-TI-dFB"/>
+                <constraint firstItem="3qR-do-1aG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="hXb-F1-Zwq"/>
+                <constraint firstAttribute="bottom" secondItem="3qR-do-1aG" secondAttribute="bottom" id="koy-Vl-0Ax"/>
+                <constraint firstItem="OPW-tk-TG0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="l27-Gc-HCI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="BNU-QU-D7Z" secondAttribute="trailing" constant="30" id="riL-E3-Mno"/>
+                <constraint firstItem="3qR-do-1aG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="shj-VU-Elq"/>
+                <constraint firstItem="3qR-do-1aG" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="xD7-vR-2Yp"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="198.55072463768118" y="-176.45089285714286"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="flashAuto" width="48" height="48"/>
+        <image name="flashOff" width="48" height="48"/>
+        <image name="flashOn" width="48" height="48"/>
+    </resources>
+</document>

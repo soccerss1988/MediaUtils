@@ -15,25 +15,38 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var photoDisplay: UIImageView!
     @IBOutlet weak var preview: UIView!
     @IBOutlet weak var captureButton: UIButton!
+    @IBOutlet weak var flashModeView: UIView!
+    @IBOutlet weak var flashButton: UIButton!
+    @IBOutlet weak var switchCameraBurron: UIButton!
+    
     var mediaOperator = MediaOperator().instance()
+    var isFlashBarOpen  = false
+    lazy var flashModeBar : FlashModeBar = {
+        let flashModeBar = FlashModeBar.instanceFromNib(ownder: self)
+        flashModeBar.delegate = self
+        return flashModeBar
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.preview.layer.insertSublayer(self.mediaOperator.previewLayer, at: 0)
         self.captureButtonStyle()
         self.mediaOperator.delegate = self
-        test()
+        self.flashModeView.isHidden = true
     }
     
     func captureButtonStyle() {
         self.captureButton.layer.cornerRadius = min(captureButton.frame.width, captureButton.frame.height) / 2
         self.captureButton.layer.borderWidth = 2
         self.captureButton.layer.borderColor = UIColor.darkGray.cgColor
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         self.mediaOperator.startCapture()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        self.mediaOperator.previewLayer.frame = self.preview.bounds
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -55,19 +68,56 @@ class CameraViewController: UIViewController {
     
     @IBAction func flashMode(_ sender: Any) {
         
-    }
-    
-    override func viewDidLayoutSubviews() {
-        self.mediaOperator.previewLayer.frame = self.preview.bounds
-    }
-    
-    func test() {
-        let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes:
-            [.builtInTrueDepthCamera, .builtInDualCamera, .builtInWideAngleCamera],mediaType: .video, position: .unspecified)
-        print(discoverySession.devices)
-        if let backCam = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back) {
-            print(backCam)
+        if self.isFlashBarOpen == true {
+            self.closeFlashModeBar()
+        } else {
+            self.openFlashModeBar()
         }
+    }
+    
+    func openFlashModeBar() {
+        
+        self.flashModeBar.frame = self.flashModeView.bounds
+        self.flashModeView.addSubview(self.flashModeBar)
+        
+        let originWidth = (self.switchCameraBurron.frame.midX - self.flashButton.frame.maxX - 50)
+        flashModeviewStyle(hidden: false, alpha: 0, width: 0)
+        UIView .animate(withDuration: 0.2) {
+            self.isFlashBarOpen = true
+            self.flashModeviewStyle(hidden: false, alpha: 1, width: originWidth)
+        }
+    }
+    
+    func closeFlashModeBar() {
+        UIView .animate(withDuration: 0.2) {
+            self.isFlashBarOpen = false
+            self.flashModeviewStyle(hidden: true, alpha: 0, width: 0)
+        }
+    }
+    
+    func flashModeviewStyle(hidden: Bool, alpha: CGFloat, width: CGFloat) {
+        self.flashModeView.frame.size.width = width
+        self.flashModeView.alpha = alpha
+        self.flashModeView.isHidden = hidden
+    }
+}
+
+extension CameraViewController : FlashModeBarDelegate {
+    
+    func didchangeFlashMode(mode: FlashMode) {
+        
+        switch mode {
+        case .auto:
+            self.flashButton.setBackgroundImage(UIImage(named:"flashAuto"), for: .normal)
+            self.mediaOperator.modifyFlashMode(flashMode: .auto)
+        case .on:
+            self.flashButton.setBackgroundImage(UIImage(named:"flashOn"), for: .normal)
+            self.mediaOperator.modifyFlashMode(flashMode: .on)
+        case .off:
+            self.flashButton.setBackgroundImage(UIImage(named:"flashOff"), for: .normal)
+            self.mediaOperator.modifyFlashMode(flashMode: .off)
+        }
+       self.closeFlashModeBar()
     }
 }
 
