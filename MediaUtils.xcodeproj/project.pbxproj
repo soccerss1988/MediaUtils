@@ -16,23 +16,22 @@
 		0966FC4022B7C4820025D732 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966FC3F22B7C4820025D732 /* AudioViewController.swift */; };
 		09B7CC1F22DF65A60012D838 /* FlashModeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B7CC1E22DF65A60012D838 /* FlashModeBar.swift */; };
 		09B7CC2122DF65BB0012D838 /* FlashModeBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09B7CC2022DF65BB0012D838 /* FlashModeBar.xib */; };
-		09BEF40F22D9B915007BAD12 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BEF40E22D9B915007BAD12 /* Device.swift */; };
 		09BEF41222D9D17C007BAD12 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BEF41122D9D17C007BAD12 /* CoreMIDI.framework */; };
-		09BF72CA22E3159600EAC931 /* CoUtiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF72C722E3158E00EAC931 /* CoUtiles.framework */; };
-		09BF72CB22E3159600EAC931 /* CoUtiles.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF72C722E3158E00EAC931 /* CoUtiles.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		09BF72D922E3184A00EAC931 /* CoUtiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF72D622E3182700EAC931 /* CoUtiles.framework */; };
+		09BF72DA22E3184A00EAC931 /* CoUtiles.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF72D622E3182700EAC931 /* CoUtiles.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		09BF72C622E3158E00EAC931 /* PBXContainerItemProxy */ = {
+		09BF72D522E3182700EAC931 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 09BF72C122E3158E00EAC931 /* CoUtiles.xcodeproj */;
+			containerPortal = 09BF72D022E3182700EAC931 /* CoUtiles.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 098DBB6A22E202F600A9C325;
 			remoteInfo = CoUtiles;
 		};
-		09BF72C822E3158E00EAC931 /* PBXContainerItemProxy */ = {
+		09BF72D722E3182700EAC931 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 09BF72C122E3158E00EAC931 /* CoUtiles.xcodeproj */;
+			containerPortal = 09BF72D022E3182700EAC931 /* CoUtiles.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 098DBB7322E202F600A9C325;
 			remoteInfo = CoUtilesTests;
@@ -46,7 +45,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				09BF72CB22E3159600EAC931 /* CoUtiles.framework in Embed Frameworks */,
+				09BF72DA22E3184A00EAC931 /* CoUtiles.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,12 +62,10 @@
 		0966FC3622B7C25F0025D732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0966FC3D22B7C4680025D732 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		0966FC3F22B7C4820025D732 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
-		0966FC4222B7C4A70025D732 /* MediaOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaOperator.swift; sourceTree = "<group>"; };
 		09B7CC1E22DF65A60012D838 /* FlashModeBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashModeBar.swift; sourceTree = "<group>"; };
 		09B7CC2022DF65BB0012D838 /* FlashModeBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlashModeBar.xib; sourceTree = "<group>"; };
-		09BEF40E22D9B915007BAD12 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		09BEF41122D9D17C007BAD12 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
-		09BF72C122E3158E00EAC931 /* CoUtiles.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoUtiles.xcodeproj; path = frameworks/CoUtils/CoUtiles.xcodeproj; sourceTree = "<group>"; };
+		09BF72D022E3182700EAC931 /* CoUtiles.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoUtiles.xcodeproj; path = frameworks/CoUtils/CoUtiles.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09BF72CA22E3159600EAC931 /* CoUtiles.framework in Frameworks */,
+				09BF72D922E3184A00EAC931 /* CoUtiles.framework in Frameworks */,
 				09BEF41222D9D17C007BAD12 /* CoreMIDI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,7 +84,7 @@
 		0966FC1E22B7C25D0025D732 = {
 			isa = PBXGroup;
 			children = (
-				09BF72C122E3158E00EAC931 /* CoUtiles.xcodeproj */,
+				09BF72D022E3182700EAC931 /* CoUtiles.xcodeproj */,
 				0966FC2922B7C25D0025D732 /* MediaUtils */,
 				0966FC2822B7C25D0025D732 /* Products */,
 				09BEF41022D9D17C007BAD12 /* Frameworks */,
@@ -130,8 +127,6 @@
 		0966FC4122B7C48B0025D732 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				0966FC4222B7C4A70025D732 /* MediaOperator.swift */,
-				09BEF40E22D9B915007BAD12 /* Device.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -153,11 +148,11 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		09BF72C222E3158E00EAC931 /* Products */ = {
+		09BF72D122E3182700EAC931 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				09BF72C722E3158E00EAC931 /* CoUtiles.framework */,
-				09BF72C922E3158E00EAC931 /* CoUtilesTests.xctest */,
+				09BF72D622E3182700EAC931 /* CoUtiles.framework */,
+				09BF72D822E3182700EAC931 /* CoUtilesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -211,8 +206,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 09BF72C222E3158E00EAC931 /* Products */;
-					ProjectRef = 09BF72C122E3158E00EAC931 /* CoUtiles.xcodeproj */;
+					ProductGroup = 09BF72D122E3182700EAC931 /* Products */;
+					ProjectRef = 09BF72D022E3182700EAC931 /* CoUtiles.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -223,18 +218,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		09BF72C722E3158E00EAC931 /* CoUtiles.framework */ = {
+		09BF72D622E3182700EAC931 /* CoUtiles.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = CoUtiles.framework;
-			remoteRef = 09BF72C622E3158E00EAC931 /* PBXContainerItemProxy */;
+			remoteRef = 09BF72D522E3182700EAC931 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		09BF72C922E3158E00EAC931 /* CoUtilesTests.xctest */ = {
+		09BF72D822E3182700EAC931 /* CoUtilesTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = CoUtilesTests.xctest;
-			remoteRef = 09BF72C822E3158E00EAC931 /* PBXContainerItemProxy */;
+			remoteRef = 09BF72D722E3182700EAC931 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -260,7 +255,6 @@
 			files = (
 				0966FC2D22B7C25D0025D732 /* CameraViewController.swift in Sources */,
 				0966FC4022B7C4820025D732 /* AudioViewController.swift in Sources */,
-				09BEF40F22D9B915007BAD12 /* Device.swift in Sources */,
 				0966FC2B22B7C25D0025D732 /* AppDelegate.swift in Sources */,
 				0966FC3E22B7C4680025D732 /* VideoViewController.swift in Sources */,
 				09B7CC1F22DF65A60012D838 /* FlashModeBar.swift in Sources */,
