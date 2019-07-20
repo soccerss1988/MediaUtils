@@ -19,6 +19,13 @@
 		09BEF41222D9D17C007BAD12 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BEF41122D9D17C007BAD12 /* CoreMIDI.framework */; };
 		09BF72D922E3184A00EAC931 /* CoUtiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF72D622E3182700EAC931 /* CoUtiles.framework */; };
 		09BF72DA22E3184A00EAC931 /* CoUtiles.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF72D622E3182700EAC931 /* CoUtiles.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		09BF72E622E31FD100EAC931 /* CaptureOptionTableview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF72E222E31FD100EAC931 /* CaptureOptionTableview.swift */; };
+		09BF72E722E31FD100EAC931 /* CaptureOptionTableview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09BF72E522E31FD100EAC931 /* CaptureOptionTableview.xib */; };
+		09BF72E922E3200700EAC931 /* CaptureOptionalUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF72E822E3200700EAC931 /* CaptureOptionalUnit.swift */; };
+		09BF72EC22E3202E00EAC931 /* CaptureOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF72EA22E3202E00EAC931 /* CaptureOptionCell.swift */; };
+		09BF72ED22E3202E00EAC931 /* CaptureOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09BF72EB22E3202E00EAC931 /* CaptureOptionCell.xib */; };
+		09BF72F022E3212B00EAC931 /* CaptureOptionSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF72EE22E3212B00EAC931 /* CaptureOptionSliderCell.swift */; };
+		09BF72F122E3212B00EAC931 /* CaptureOptionSliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09BF72EF22E3212B00EAC931 /* CaptureOptionSliderCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +73,13 @@
 		09B7CC2022DF65BB0012D838 /* FlashModeBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlashModeBar.xib; sourceTree = "<group>"; };
 		09BEF41122D9D17C007BAD12 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
 		09BF72D022E3182700EAC931 /* CoUtiles.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoUtiles.xcodeproj; path = frameworks/CoUtils/CoUtiles.xcodeproj; sourceTree = "<group>"; };
+		09BF72E222E31FD100EAC931 /* CaptureOptionTableview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureOptionTableview.swift; sourceTree = "<group>"; };
+		09BF72E522E31FD100EAC931 /* CaptureOptionTableview.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CaptureOptionTableview.xib; sourceTree = "<group>"; };
+		09BF72E822E3200700EAC931 /* CaptureOptionalUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CaptureOptionalUnit.swift; path = MediaUtils/Models/CaptureOptionalUnit.swift; sourceTree = SOURCE_ROOT; };
+		09BF72EA22E3202E00EAC931 /* CaptureOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureOptionCell.swift; sourceTree = "<group>"; };
+		09BF72EB22E3202E00EAC931 /* CaptureOptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaptureOptionCell.xib; sourceTree = "<group>"; };
+		09BF72EE22E3212B00EAC931 /* CaptureOptionSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureOptionSliderCell.swift; sourceTree = "<group>"; };
+		09BF72EF22E3212B00EAC931 /* CaptureOptionSliderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaptureOptionSliderCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +141,7 @@
 		0966FC4122B7C48B0025D732 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				09BF72E822E3200700EAC931 /* CaptureOptionalUnit.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -134,8 +149,14 @@
 		09B7CC1D22DF65780012D838 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				09BF72E222E31FD100EAC931 /* CaptureOptionTableview.swift */,
+				09BF72E522E31FD100EAC931 /* CaptureOptionTableview.xib */,
 				09B7CC1E22DF65A60012D838 /* FlashModeBar.swift */,
 				09B7CC2022DF65BB0012D838 /* FlashModeBar.xib */,
+				09BF72EA22E3202E00EAC931 /* CaptureOptionCell.swift */,
+				09BF72EB22E3202E00EAC931 /* CaptureOptionCell.xib */,
+				09BF72EE22E3212B00EAC931 /* CaptureOptionSliderCell.swift */,
+				09BF72EF22E3212B00EAC931 /* CaptureOptionSliderCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -240,7 +261,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0966FC3522B7C25F0025D732 /* LaunchScreen.storyboard in Resources */,
+				09BF72ED22E3202E00EAC931 /* CaptureOptionCell.xib in Resources */,
+				09BF72F122E3212B00EAC931 /* CaptureOptionSliderCell.xib in Resources */,
 				09B7CC2122DF65BB0012D838 /* FlashModeBar.xib in Resources */,
+				09BF72E722E31FD100EAC931 /* CaptureOptionTableview.xib in Resources */,
 				0966FC3222B7C25F0025D732 /* Assets.xcassets in Resources */,
 				0966FC3022B7C25D0025D732 /* Main.storyboard in Resources */,
 			);
@@ -253,11 +277,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09BF72E922E3200700EAC931 /* CaptureOptionalUnit.swift in Sources */,
 				0966FC2D22B7C25D0025D732 /* CameraViewController.swift in Sources */,
 				0966FC4022B7C4820025D732 /* AudioViewController.swift in Sources */,
 				0966FC2B22B7C25D0025D732 /* AppDelegate.swift in Sources */,
 				0966FC3E22B7C4680025D732 /* VideoViewController.swift in Sources */,
 				09B7CC1F22DF65A60012D838 /* FlashModeBar.swift in Sources */,
+				09BF72E622E31FD100EAC931 /* CaptureOptionTableview.swift in Sources */,
+				09BF72EC22E3202E00EAC931 /* CaptureOptionCell.swift in Sources */,
+				09BF72F022E3212B00EAC931 /* CaptureOptionSliderCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

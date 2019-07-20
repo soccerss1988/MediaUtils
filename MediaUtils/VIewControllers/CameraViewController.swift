@@ -19,6 +19,7 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var flashModeView: UIView!
     @IBOutlet weak var flashButton: UIButton!
     @IBOutlet weak var switchCameraBurron: UIButton!
+    @IBOutlet weak var optinaltableview: UIView!
     
     var mediaOperator = MediaOperator().instance()
     var isFlashBarOpen  = false
@@ -34,6 +35,7 @@ class CameraViewController: UIViewController {
         self.captureButtonStyle()
         self.mediaOperator.delegate = self
         self.flashModeView.isHidden = true
+        self.optinaltableview.isHidden = true
     }
     
     func captureButtonStyle() {
