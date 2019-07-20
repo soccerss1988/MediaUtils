@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import ImageIO
+import CoUtiles
 
 class CameraViewController: UIViewController {
     

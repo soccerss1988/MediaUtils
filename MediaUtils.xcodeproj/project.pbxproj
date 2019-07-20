@@ -14,12 +14,44 @@
 		0966FC3522B7C25F0025D732 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0966FC3322B7C25F0025D732 /* LaunchScreen.storyboard */; };
 		0966FC3E22B7C4680025D732 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966FC3D22B7C4680025D732 /* VideoViewController.swift */; };
 		0966FC4022B7C4820025D732 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966FC3F22B7C4820025D732 /* AudioViewController.swift */; };
-		0966FC4322B7C4A70025D732 /* MediaOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0966FC4222B7C4A70025D732 /* MediaOperator.swift */; };
 		09B7CC1F22DF65A60012D838 /* FlashModeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B7CC1E22DF65A60012D838 /* FlashModeBar.swift */; };
 		09B7CC2122DF65BB0012D838 /* FlashModeBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09B7CC2022DF65BB0012D838 /* FlashModeBar.xib */; };
 		09BEF40F22D9B915007BAD12 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BEF40E22D9B915007BAD12 /* Device.swift */; };
 		09BEF41222D9D17C007BAD12 /* CoreMIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BEF41122D9D17C007BAD12 /* CoreMIDI.framework */; };
+		09BF72CA22E3159600EAC931 /* CoUtiles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF72C722E3158E00EAC931 /* CoUtiles.framework */; };
+		09BF72CB22E3159600EAC931 /* CoUtiles.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 09BF72C722E3158E00EAC931 /* CoUtiles.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		09BF72C622E3158E00EAC931 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 09BF72C122E3158E00EAC931 /* CoUtiles.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 098DBB6A22E202F600A9C325;
+			remoteInfo = CoUtiles;
+		};
+		09BF72C822E3158E00EAC931 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 09BF72C122E3158E00EAC931 /* CoUtiles.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 098DBB7322E202F600A9C325;
+			remoteInfo = CoUtilesTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		09BF72CC22E3159600EAC931 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				09BF72CB22E3159600EAC931 /* CoUtiles.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0966FC2722B7C25D0025D732 /* MediaUtils.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediaUtils.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +68,7 @@
 		09B7CC2022DF65BB0012D838 /* FlashModeBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FlashModeBar.xib; sourceTree = "<group>"; };
 		09BEF40E22D9B915007BAD12 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		09BEF41122D9D17C007BAD12 /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
+		09BF72C122E3158E00EAC931 /* CoUtiles.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoUtiles.xcodeproj; path = frameworks/CoUtils/CoUtiles.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09BF72CA22E3159600EAC931 /* CoUtiles.framework in Frameworks */,
 				09BEF41222D9D17C007BAD12 /* CoreMIDI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,6 +87,7 @@
 		0966FC1E22B7C25D0025D732 = {
 			isa = PBXGroup;
 			children = (
+				09BF72C122E3158E00EAC931 /* CoUtiles.xcodeproj */,
 				0966FC2922B7C25D0025D732 /* MediaUtils */,
 				0966FC2822B7C25D0025D732 /* Products */,
 				09BEF41022D9D17C007BAD12 /* Frameworks */,
@@ -118,6 +153,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		09BF72C222E3158E00EAC931 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				09BF72C722E3158E00EAC931 /* CoUtiles.framework */,
+				09BF72C922E3158E00EAC931 /* CoUtilesTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,6 +172,7 @@
 				0966FC2322B7C25D0025D732 /* Sources */,
 				0966FC2422B7C25D0025D732 /* Frameworks */,
 				0966FC2522B7C25D0025D732 /* Resources */,
+				09BF72CC22E3159600EAC931 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -164,12 +209,35 @@
 			mainGroup = 0966FC1E22B7C25D0025D732;
 			productRefGroup = 0966FC2822B7C25D0025D732 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 09BF72C222E3158E00EAC931 /* Products */;
+					ProjectRef = 09BF72C122E3158E00EAC931 /* CoUtiles.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				0966FC2622B7C25D0025D732 /* MediaUtils */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		09BF72C722E3158E00EAC931 /* CoUtiles.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CoUtiles.framework;
+			remoteRef = 09BF72C622E3158E00EAC931 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		09BF72C922E3158E00EAC931 /* CoUtilesTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CoUtilesTests.xctest;
+			remoteRef = 09BF72C822E3158E00EAC931 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		0966FC2522B7C25D0025D732 /* Resources */ = {
@@ -192,7 +260,6 @@
 			files = (
 				0966FC2D22B7C25D0025D732 /* CameraViewController.swift in Sources */,
 				0966FC4022B7C4820025D732 /* AudioViewController.swift in Sources */,
-				0966FC4322B7C4A70025D732 /* MediaOperator.swift in Sources */,
 				09BEF40F22D9B915007BAD12 /* Device.swift in Sources */,
 				0966FC2B22B7C25D0025D732 /* AppDelegate.swift in Sources */,
 				0966FC3E22B7C4680025D732 /* VideoViewController.swift in Sources */,
