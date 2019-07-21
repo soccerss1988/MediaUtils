@@ -26,6 +26,7 @@
 		09BF72ED22E3202E00EAC931 /* CaptureOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09BF72EB22E3202E00EAC931 /* CaptureOptionCell.xib */; };
 		09BF72F022E3212B00EAC931 /* CaptureOptionSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF72EE22E3212B00EAC931 /* CaptureOptionSliderCell.swift */; };
 		09BF72F122E3212B00EAC931 /* CaptureOptionSliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09BF72EF22E3212B00EAC931 /* CaptureOptionSliderCell.xib */; };
+		09BF72F422E34CBF00EAC931 /* CaptureCellConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 09BF72F322E34CBF00EAC931 /* CaptureCellConfig.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		09BF72EB22E3202E00EAC931 /* CaptureOptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaptureOptionCell.xib; sourceTree = "<group>"; };
 		09BF72EE22E3212B00EAC931 /* CaptureOptionSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureOptionSliderCell.swift; sourceTree = "<group>"; };
 		09BF72EF22E3212B00EAC931 /* CaptureOptionSliderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaptureOptionSliderCell.xib; sourceTree = "<group>"; };
+		09BF72F322E34CBF00EAC931 /* CaptureCellConfig.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = CaptureCellConfig.json; path = MediaUtils/CaptureCellConfig.json; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 		0966FC2922B7C25D0025D732 /* MediaUtils */ = {
 			isa = PBXGroup;
 			children = (
+				09BF72F222E34CB000EAC931 /* Datas */,
 				09B7CC1D22DF65780012D838 /* Views */,
 				0966FC4122B7C48B0025D732 /* Models */,
 				0966FC3C22B7C41D0025D732 /* VIewControllers */,
@@ -176,6 +179,14 @@
 				09BF72D822E3182700EAC931 /* CoUtilesTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		09BF72F222E34CB000EAC931 /* Datas */ = {
+			isa = PBXGroup;
+			children = (
+				09BF72F322E34CBF00EAC931 /* CaptureCellConfig.json */,
+			);
+			path = Datas;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +271,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09BF72F422E34CBF00EAC931 /* CaptureCellConfig.json in Resources */,
 				0966FC3522B7C25F0025D732 /* LaunchScreen.storyboard in Resources */,
 				09BF72ED22E3202E00EAC931 /* CaptureOptionCell.xib in Resources */,
 				09BF72F122E3212B00EAC931 /* CaptureOptionSliderCell.xib in Resources */,

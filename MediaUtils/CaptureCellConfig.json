@@ -1,0 +1,60 @@
+{
+"optionCellConfig": [
+{
+"title": "WB",
+"type": "main",
+"defultValue": 5000,
+"minValue": 0,
+"maxValue": 0
+},
+{
+"title": "WB",
+"type": "sub",
+"defultValue": 5000,
+"minValue": 3000,
+"maxValue": 9000
+},
+{
+"title": "shutter",
+"type": "main",
+"defultValue": 0,
+"minValue": 0,
+"maxValue": 0
+},
+{
+"title": "shutter",
+"type": "sub",
+"defultValue": 125,
+"minValue": 22,
+"maxValue": 300000
+},
+{
+"title": "ISO",
+"type": "main",
+"defultValue": 200,
+"minValue": 0,
+"maxValue": 0
+},
+{
+"title": "ISO",
+"type": "sub",
+"defultValue": 200,
+"minValue": 50,
+"maxValue": 800
+},
+{
+"title": "EV",
+"type": "main",
+"defultValue": 0,
+"minValue": 0,
+"maxValue": 0
+},
+{
+"title": "EV",
+"type": "sub",
+"defultValue": 0,
+"minValue": -3,
+"maxValue": 3
+}
+]
+}

@@ -10,6 +10,9 @@ import UIKit
 
 class CaptureOptionCell: UITableViewCell {
     static let cellId = "CaptureOptionCell"
+    
+    @IBOutlet weak var Titlelab: UILabel!
+    @IBOutlet weak var segment: UISegmentedControl!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

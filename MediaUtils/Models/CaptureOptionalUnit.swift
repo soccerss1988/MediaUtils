@@ -7,7 +7,37 @@
 //
 
 import UIKit
+private class Unitkeys {
+    static let title            = "title"
+    static let type             = "type"
+    static let defultValue      = "defultValue"
+    static let minValue         = "minValue"
+    static let maxValue         = "maxValue"
+}
 
 class CaptureOptionalUnit: NSObject {
-
+    var title : String
+    var type : String
+    var defultValue : Float = 0
+    var minValue : Float = 0
+    var maxValue : Float = 0
+    
+    init(jsonData: Dictionary<String,Any>){
+        self.title = jsonData[Unitkeys.title] as! String
+        self.type = jsonData[Unitkeys.type] as! String
+        self.defultValue = jsonData[Unitkeys.defultValue] as! Float
+        self.minValue = jsonData[Unitkeys.minValue] as! Float
+        self.maxValue = jsonData[Unitkeys.maxValue] as! Float
+    }
+    
+    
+    static func getUnitsArray(options: Array<Dictionary<String,Any>>) -> [CaptureOptionalUnit] {
+        var optionArray = [CaptureOptionalUnit]()
+        for option in options {
+            let optionUnit = CaptureOptionalUnit.init(jsonData: option)
+            optionArray .append(optionUnit)
+        }
+        return optionArray
+    }
+    
 }

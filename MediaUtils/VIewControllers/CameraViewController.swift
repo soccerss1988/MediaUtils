@@ -19,7 +19,7 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var flashModeView: UIView!
     @IBOutlet weak var flashButton: UIButton!
     @IBOutlet weak var switchCameraBurron: UIButton!
-    @IBOutlet weak var optinaltableview: UIView!
+    @IBOutlet weak var optinalDisplayView: UIView!
     
     var mediaOperator = MediaOperator().instance()
     var isFlashBarOpen  = false
@@ -29,13 +29,35 @@ class CameraViewController: UIViewController {
         return flashModeBar
     }()
     
+    
+    lazy var cellConfig : [CaptureOptionalUnit]? = {
+        
+        if let jsonPath = Bundle.main.path(forResource: "CaptureCellConfig", ofType: "json") {
+            if let data = try? NSData(contentsOfFile: jsonPath) as Data {
+                if let jsonData = try? JSONSerialization.jsonObject(with: data, options: .mutableLeaves) as? [String: Any] {
+                    if let array = jsonData["optionCellConfig"] as? Array<Dictionary<String,Any>> {
+                        return CaptureOptionalUnit.getUnitsArray(options: array)
+                    }
+                }
+            }
+        }
+       return  nil
+    }()
+    
+    lazy var captureOptionTableview : CaptureOptionTableview = {
+        let captureOptionTableview = CaptureOptionTableview.newsinstace(owner: self)
+        captureOptionTableview.optionalList = self.cellConfig
+        captureOptionTableview.frame = self.optinalDisplayView.bounds
+        return captureOptionTableview
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.preview.layer.insertSublayer(self.mediaOperator.previewLayer, at: 0)
         self.captureButtonStyle()
         self.mediaOperator.delegate = self
         self.flashModeView.isHidden = true
-        self.optinaltableview.isHidden = true
+        self.optinalDisplayView.isHidden = true
     }
     
     func captureButtonStyle() {
@@ -67,6 +89,16 @@ class CameraViewController: UIViewController {
     
     @IBAction func CarmeraSettingOptions(_ sender: Any) {
         
+        if self.captureOptionTableview.isOpen == true {
+            captureOptionTableview.isOpen = false
+            self.captureOptionTableview.removeFromSuperview()
+            self.optinalDisplayView.isHidden = true
+        } else {
+            captureOptionTableview.isOpen = true
+            self.optinalDisplayView.addSubview(captureOptionTableview)
+            self.optinalDisplayView.isHidden = false
+//            captureOptionTableview.tableview.reloadData()
+        }
     }
     
     @IBAction func flashMode(_ sender: Any) {
