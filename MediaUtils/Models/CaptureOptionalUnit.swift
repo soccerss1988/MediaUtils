@@ -13,6 +13,7 @@ private class Unitkeys {
     static let defultValue      = "defultValue"
     static let minValue         = "minValue"
     static let maxValue         = "maxValue"
+    static let valueIndex       = "valueIndex"
 }
 
 class CaptureOptionalUnit: NSObject {
@@ -21,6 +22,7 @@ class CaptureOptionalUnit: NSObject {
     var defultValue : Float = 0
     var minValue : Float = 0
     var maxValue : Float = 0
+    var valueIndex = [Int]()
     
     init(jsonData: Dictionary<String,Any>){
         self.title = jsonData[Unitkeys.title] as! String
@@ -28,6 +30,7 @@ class CaptureOptionalUnit: NSObject {
         self.defultValue = jsonData[Unitkeys.defultValue] as! Float
         self.minValue = jsonData[Unitkeys.minValue] as! Float
         self.maxValue = jsonData[Unitkeys.maxValue] as! Float
+        self.valueIndex = jsonData[Unitkeys.valueIndex] as! [Int]
     }
     
     

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14835.7" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14845" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14790.5"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14799.2"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,22 +19,22 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lg-BL-hJC">
                         <rect key="frame" x="5" y="5" width="39" height="19.5"/>
-                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="0lg-BL-hJC" secondAttribute="height" multiplier="2:1" id="2rW-SG-mw8"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="max" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zc3-43-AVs">
-                        <rect key="frame" x="276" y="5" width="39" height="19.5"/>
+                        <rect key="frame" x="273" y="5" width="42" height="19.5"/>
                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="zc3-43-AVs" secondAttribute="height" multiplier="2:1" id="wEc-Sp-0bo"/>
+                            <constraint firstAttribute="width" secondItem="zc3-43-AVs" secondAttribute="height" multiplier="2:1" constant="3" id="wEc-Sp-0bo"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="select" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NS4-5G-gi1">
@@ -44,7 +44,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="oHB-Jc-l0A">
-                        <rect key="frame" x="3" y="35.5" width="314" height="27.5"/>
+                        <rect key="frame" x="3" y="27.5" width="314" height="35.5"/>
                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </slider>
                 </subviews>
@@ -57,15 +57,18 @@
                     <constraint firstItem="oHB-Jc-l0A" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="Q3u-Q8-202"/>
                     <constraint firstAttribute="bottom" secondItem="oHB-Jc-l0A" secondAttribute="bottom" constant="5" id="V8m-CL-O1Y"/>
                     <constraint firstAttribute="trailing" secondItem="zc3-43-AVs" secondAttribute="trailing" constant="5" id="Yuq-sa-JYx"/>
-                    <constraint firstItem="oHB-Jc-l0A" firstAttribute="top" secondItem="0lg-BL-hJC" secondAttribute="bottom" constant="11" id="fn7-qd-lAx"/>
+                    <constraint firstItem="oHB-Jc-l0A" firstAttribute="top" secondItem="0lg-BL-hJC" secondAttribute="bottom" constant="3" id="fn7-qd-lAx"/>
                     <constraint firstItem="0lg-BL-hJC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="pY5-da-7Wh"/>
-                    <constraint firstItem="oHB-Jc-l0A" firstAttribute="top" secondItem="zc3-43-AVs" secondAttribute="bottom" constant="11" id="vgc-LG-k9R"/>
+                    <constraint firstItem="oHB-Jc-l0A" firstAttribute="top" secondItem="zc3-43-AVs" secondAttribute="bottom" constant="3" id="vgc-LG-k9R"/>
                     <constraint firstItem="NS4-5G-gi1" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="z2O-Uf-cbI"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="maxLable" destination="zc3-43-AVs" id="Dma-6m-ZoG"/>
+                <outlet property="minLable" destination="0lg-BL-hJC" id="Cai-qI-5Z7"/>
                 <outlet property="slider" destination="oHB-Jc-l0A" id="eaZ-K5-EFa"/>
+                <outlet property="sliderValueLable" destination="NS4-5G-gi1" id="1rf-So-2es"/>
             </connections>
             <point key="canvasLocation" x="114" y="79"/>
         </tableViewCell>

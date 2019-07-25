@@ -58,6 +58,7 @@ class CameraViewController: UIViewController {
         self.mediaOperator.delegate = self
         self.flashModeView.isHidden = true
         self.optinalDisplayView.isHidden = true
+        self.test()
     }
     
     func captureButtonStyle() {
@@ -97,7 +98,6 @@ class CameraViewController: UIViewController {
             captureOptionTableview.isOpen = true
             self.optinalDisplayView.addSubview(captureOptionTableview)
             self.optinalDisplayView.isHidden = false
-//            captureOptionTableview.tableview.reloadData()
         }
     }
     
@@ -134,6 +134,49 @@ class CameraViewController: UIViewController {
         self.flashModeView.frame.size.width = width
         self.flashModeView.alpha = alpha
         self.flashModeView.isHidden = hidden
+    }
+    
+    func test() {
+        try? self.mediaOperator.currentInputDevice?.lockForConfiguration()
+        
+        //expisure 曝光
+        self.mediaOperator.currentInputDevice?.exposureMode = .autoExpose
+        self.mediaOperator.currentInputDevice?.exposureMode = .continuousAutoExposure
+        self.mediaOperator.currentInputDevice?.exposureMode = .locked
+        
+        //ISO 快門+iso
+        print(self.mediaOperator.currentInputDevice?.activeFormat.minISO as Any)//22
+        print(self.mediaOperator.currentInputDevice?.activeFormat.maxISO as Any)//880
+        print(self.mediaOperator.currentInputDevice?.activeFormat.minExposureDuration as Any)//CMTime(value: 20, timescale: 1000000
+        print(self.mediaOperator.currentInputDevice?.activeFormat.maxExposureDuration as Any)//CMTime(value: 333333, timescale: 1000000
+        self.mediaOperator.currentInputDevice?.setExposureModeCustom(duration: self.mediaOperator.currentInputDevice?.activeFormat.maxExposureDuration ?? CMTimeMake(value: 0, timescale: 0), iso: 500, completionHandler: { (cmtime) in
+            
+        })
+        
+        
+        //對焦
+        self.mediaOperator.currentInputDevice?.focusMode = .autoFocus
+        self.mediaOperator.currentInputDevice?.focusMode = .continuousAutoFocus
+//        self.mediaOperator.currentInputDevice?.focusMode = .locked
+        
+        //EV
+        print(self.mediaOperator.currentInputDevice?.minExposureTargetBias ?? 0)// in EV units -8
+        print(self.mediaOperator.currentInputDevice?.maxExposureTargetBias ?? 0)// in EV units +8
+                self.mediaOperator.currentInputDevice?.setExposureTargetBias(self.mediaOperator.currentInputDevice?.minExposureTargetBias ?? 0, completionHandler: { (cmtime) in
+                    
+                })
+        
+        
+        //shuuter
+        
+        
+        //WB
+//        self.mediaOperator.currentInputDevice?.whiteBalanceMode = .autoWhiteBalance
+//        self.mediaOperator.currentInputDevice?.whiteBalanceMode = .continuousAutoWhiteBalance
+//        self.mediaOperator.currentInputDevice?.whiteBalanceMode = .locked
+        
+        self.mediaOperator.currentInputDevice?.unlockForConfiguration()
+        
     }
 }
 

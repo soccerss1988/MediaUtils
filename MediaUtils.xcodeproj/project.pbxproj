@@ -27,6 +27,7 @@
 		09BF72F022E3212B00EAC931 /* CaptureOptionSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF72EE22E3212B00EAC931 /* CaptureOptionSliderCell.swift */; };
 		09BF72F122E3212B00EAC931 /* CaptureOptionSliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09BF72EF22E3212B00EAC931 /* CaptureOptionSliderCell.xib */; };
 		09BF72F422E34CBF00EAC931 /* CaptureCellConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 09BF72F322E34CBF00EAC931 /* CaptureCellConfig.json */; };
+		09F29FC322EA0B27005C82EA /* CaptureSettingOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F29FC222EA0B27005C82EA /* CaptureSettingOperator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		09BF72EE22E3212B00EAC931 /* CaptureOptionSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureOptionSliderCell.swift; sourceTree = "<group>"; };
 		09BF72EF22E3212B00EAC931 /* CaptureOptionSliderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaptureOptionSliderCell.xib; sourceTree = "<group>"; };
 		09BF72F322E34CBF00EAC931 /* CaptureCellConfig.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = CaptureCellConfig.json; path = MediaUtils/CaptureCellConfig.json; sourceTree = SOURCE_ROOT; };
+		09F29FC222EA0B27005C82EA /* CaptureSettingOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSettingOperator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				09BF72E822E3200700EAC931 /* CaptureOptionalUnit.swift */,
+				09F29FC222EA0B27005C82EA /* CaptureSettingOperator.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				0966FC4022B7C4820025D732 /* AudioViewController.swift in Sources */,
 				0966FC2B22B7C25D0025D732 /* AppDelegate.swift in Sources */,
 				0966FC3E22B7C4680025D732 /* VideoViewController.swift in Sources */,
+				09F29FC322EA0B27005C82EA /* CaptureSettingOperator.swift in Sources */,
 				09B7CC1F22DF65A60012D838 /* FlashModeBar.swift in Sources */,
 				09BF72E622E31FD100EAC931 /* CaptureOptionTableview.swift in Sources */,
 				09BF72EC22E3202E00EAC931 /* CaptureOptionCell.swift in Sources */,

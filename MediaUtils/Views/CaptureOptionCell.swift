@@ -10,7 +10,7 @@ import UIKit
 
 class CaptureOptionCell: UITableViewCell {
     static let cellId = "CaptureOptionCell"
-    
+    static let cellHeight: CGFloat = 45
     @IBOutlet weak var Titlelab: UILabel!
     @IBOutlet weak var segment: UISegmentedControl!
     override func awakeFromNib() {
