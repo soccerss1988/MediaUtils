@@ -7,11 +7,5 @@
 //
 
 import UIKit
+import AVFoundation
 
-class CaptureSettingOperator: NSObject {
-    //WB = auto
-    //Shuuter 22
-    // ISO 200
-    //EV 0
-    
-}

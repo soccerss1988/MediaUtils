@@ -11,6 +11,7 @@ import AVFoundation
 import ImageIO
 import CoUtiles
 
+
 class CameraViewController: UIViewController {
     
     @IBOutlet weak var photoDisplay: UIImageView!
@@ -19,16 +20,27 @@ class CameraViewController: UIViewController {
     @IBOutlet weak var flashModeView: UIView!
     @IBOutlet weak var flashButton: UIButton!
     @IBOutlet weak var switchCameraBurron: UIButton!
-    @IBOutlet weak var optinalDisplayView: UIView!
-    
+    @IBOutlet weak var optionSettingContainer: UIView!
+    @IBOutlet weak var optionItemContainer: UIView!
+
     var mediaOperator = MediaOperator().instance()
     var isFlashBarOpen  = false
+    var currentSelectOptionItem : CaptureOptionalUnit?
+
+    lazy var optionSettingVC : OptionsSettingVIewController = {
+        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OptionsSettingVC") as! OptionsSettingVIewController
+    }()
+
+    lazy var optionItemsCollectView : OptionsItemsCollectionview = {
+        let viwe = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "OptionsItemsColectVC") as! OptionsItemsCollectionview
+        return viwe
+    }()
+
     lazy var flashModeBar : FlashModeBar = {
         let flashModeBar = FlashModeBar.instanceFromNib(ownder: self)
         flashModeBar.delegate = self
         return flashModeBar
     }()
-    
     
     lazy var cellConfig : [CaptureOptionalUnit]? = {
         
@@ -41,24 +53,19 @@ class CameraViewController: UIViewController {
                 }
             }
         }
-       return  nil
-    }()
-    
-    lazy var captureOptionTableview : CaptureOptionTableview = {
-        let captureOptionTableview = CaptureOptionTableview.newsinstace(owner: self)
-        captureOptionTableview.optionalList = self.cellConfig
-        captureOptionTableview.frame = self.optinalDisplayView.bounds
-        return captureOptionTableview
+        return  nil
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.preview.layer.insertSublayer(self.mediaOperator.previewLayer, at: 0)
         self.captureButtonStyle()
         self.mediaOperator.delegate = self
         self.flashModeView.isHidden = true
-        self.optinalDisplayView.isHidden = true
-        self.test()
+        self.settingOptionItems()
+        
+        //        self.test()
     }
     
     func captureButtonStyle() {
@@ -73,6 +80,8 @@ class CameraViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         self.mediaOperator.previewLayer.frame = self.preview.bounds
+        self.optionSettingVC.view.frame = self.optionSettingContainer.bounds
+        self.optionItemsCollectView.view.frame = self.optionItemContainer.bounds
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -88,18 +97,6 @@ class CameraViewController: UIViewController {
         self.mediaOperator.swithInputCamera()
     }
     
-    @IBAction func CarmeraSettingOptions(_ sender: Any) {
-        
-        if self.captureOptionTableview.isOpen == true {
-            captureOptionTableview.isOpen = false
-            self.captureOptionTableview.removeFromSuperview()
-            self.optinalDisplayView.isHidden = true
-        } else {
-            captureOptionTableview.isOpen = true
-            self.optinalDisplayView.addSubview(captureOptionTableview)
-            self.optinalDisplayView.isHidden = false
-        }
-    }
     
     @IBAction func flashMode(_ sender: Any) {
         
@@ -136,51 +133,85 @@ class CameraViewController: UIViewController {
         self.flashModeView.isHidden = hidden
     }
     
-    func test() {
-        try? self.mediaOperator.currentInputDevice?.lockForConfiguration()
-        
-        //expisure 曝光
-        self.mediaOperator.currentInputDevice?.exposureMode = .autoExpose
-        self.mediaOperator.currentInputDevice?.exposureMode = .continuousAutoExposure
-        self.mediaOperator.currentInputDevice?.exposureMode = .locked
-        
-        //ISO 快門+iso
-        print(self.mediaOperator.currentInputDevice?.activeFormat.minISO as Any)//22
-        print(self.mediaOperator.currentInputDevice?.activeFormat.maxISO as Any)//880
-        print(self.mediaOperator.currentInputDevice?.activeFormat.minExposureDuration as Any)//CMTime(value: 20, timescale: 1000000
-        print(self.mediaOperator.currentInputDevice?.activeFormat.maxExposureDuration as Any)//CMTime(value: 333333, timescale: 1000000
-        self.mediaOperator.currentInputDevice?.setExposureModeCustom(duration: self.mediaOperator.currentInputDevice?.activeFormat.maxExposureDuration ?? CMTimeMake(value: 0, timescale: 0), iso: 500, completionHandler: { (cmtime) in
-            
-        })
-        
-        
-        //對焦
-        self.mediaOperator.currentInputDevice?.focusMode = .autoFocus
-        self.mediaOperator.currentInputDevice?.focusMode = .continuousAutoFocus
-//        self.mediaOperator.currentInputDevice?.focusMode = .locked
-        
-        //EV
-        print(self.mediaOperator.currentInputDevice?.minExposureTargetBias ?? 0)// in EV units -8
-        print(self.mediaOperator.currentInputDevice?.maxExposureTargetBias ?? 0)// in EV units +8
-                self.mediaOperator.currentInputDevice?.setExposureTargetBias(self.mediaOperator.currentInputDevice?.minExposureTargetBias ?? 0, completionHandler: { (cmtime) in
-                    
-                })
-        
-        
-        //shuuter
-        
-        
-        //WB
-//        self.mediaOperator.currentInputDevice?.whiteBalanceMode = .autoWhiteBalance
-//        self.mediaOperator.currentInputDevice?.whiteBalanceMode = .continuousAutoWhiteBalance
-//        self.mediaOperator.currentInputDevice?.whiteBalanceMode = .locked
-        
-        self.mediaOperator.currentInputDevice?.unlockForConfiguration()
-        
+    func settingOptionItems() {
+    
+    self.addChild(self.optionSettingVC)
+    self.addblurEffect(superView: self.optionSettingContainer, style: .dark)
+    self.optionSettingContainer.addSubview(self.optionSettingVC.view)
+    self.optionSettingContainer.layer.cornerRadius = 10
+    self.optionSettingContainer.clipsToBounds =  true
+    self.optionSettingContainer.isHidden = true
+    self.optionSettingVC.delegate = self
+
+    self.addblurEffect(superView: self.optionItemContainer, style: .dark)
+    self.addChild(self.optionItemsCollectView)
+    self.optionItemContainer.addSubview(self.optionItemsCollectView.view)
+    self.optionItemsCollectView.optionItems = self.cellConfig
+    self.optionItemsCollectView.itemsCollectionview.reloadData()
+    self.optionItemsCollectView.deleaget = self
+
+    }
+    
+    //    func test() {
+    //
+    //        self.mediaOperator.currentInputDevice?.lensAperture
+    //        try? self.mediaOperator.currentInputDevice?.lockForConfiguration()
+    //
+    //        //expisure 曝光
+    //        self.mediaOperator.currentInputDevice?.exposureMode = .autoExpose
+    //        self.mediaOperator.currentInputDevice?.exposureMode = .continuousAutoExposure
+    //        self.mediaOperator.currentInputDevice?.exposureMode = .locked
+    //
+    //        //ISO 快門+iso
+    //        print(self.mediaOperator.currentInputDevice?.activeFormat.minISO as Any)//22
+    //        print(self.mediaOperator.currentInputDevice?.activeFormat.maxISO as Any)//880
+    //        print(self.mediaOperator.currentInputDevice?.activeFormat.minExposureDuration as Any)//CMTime(value: 20, timescale: 1000000
+    //        print(self.mediaOperator.currentInputDevice?.activeFormat.maxExposureDuration as Any)//CMTime(value: 333333, timescale: 1000000
+    //        self.mediaOperator.currentInputDevice?.setExposureModeCustom(duration: self.mediaOperator.currentInputDevice?.activeFormat.maxExposureDuration ?? CMTimeMake(value: 0, timescale: 0), iso: 500, completionHandler: { (cmtime) in
+    //
+    //        })
+    //
+    //
+    //        //對焦
+    //        self.mediaOperator.currentInputDevice?.focusMode = .autoFocus
+    //        self.mediaOperator.currentInputDevice?.focusMode = .continuousAutoFocus
+    ////        self.mediaOperator.currentInputDevice?.focusMode = .locked
+    //
+    //        //EV
+    //        print(self.mediaOperator.currentInputDevice?.minExposureTargetBias ?? 0)// in EV units -8
+    //        print(self.mediaOperator.currentInputDevice?.maxExposureTargetBias ?? 0)// in EV units +8
+    //                self.mediaOperator.currentInputDevice?.setExposureTargetBias(self.mediaOperator.currentInputDevice?.minExposureTargetBias ?? 0, completionHandler: { (cmtime) in
+    //
+    //                })
+    //
+    //
+    //        //shuuter
+    //
+    //
+    //        //WB
+    ////        self.mediaOperator.currentInputDevice?.whiteBalanceMode = .autoWhiteBalance
+    ////        self.mediaOperator.currentInputDevice?.whiteBalanceMode = .continuousAutoWhiteBalance
+    ////        self.mediaOperator.currentInputDevice?.whiteBalanceMode = .locked
+    //
+    //        self.mediaOperator.currentInputDevice?.unlockForConfiguration()
+    //
+    //    }
+    
+    
+    
+}
+
+extension UIViewController {
+    
+    func addblurEffect(superView: UIView, style: UIBlurEffect.Style) {
+        let blurEffect = UIBlurEffect(style: style)
+        let blurView = UIVisualEffectView(effect: blurEffect)
+        blurView.frame = superView.bounds
+        superView.addSubview(blurView)
     }
 }
 
-extension CameraViewController : FlashModeBarDelegate {
+extension CameraViewController : FlashModeBarDelegate, OptionsItemsCollectionviewDelegate, OptionsSettingVIewControllerDelegate {
     
     func didchangeFlashMode(mode: FlashMode) {
         
@@ -195,7 +226,27 @@ extension CameraViewController : FlashModeBarDelegate {
             self.flashButton.setBackgroundImage(UIImage(named:"flashOff"), for: .normal)
             self.mediaOperator.modifyFlashMode(flashMode: .off)
         }
-       self.closeFlashModeBar()
+        self.closeFlashModeBar()
+    }
+    
+    func didSelectOption(item: CaptureOptionalUnit) {
+        //open
+        self.optionSettingContainer.isHidden = false
+        self.optionSettingVC.optionUnit = item
+        self.optionSettingVC.updateUI()
+        self.currentSelectOptionItem = item
+    }
+    
+    func didChangeSliderValue(sender: UISlider) {
+        print("change Value = \(sender.value)")
+        self.optionSettingContainer.isHidden = true
+        
+        //update collection itmen 上的數字
+        if let needUpdateItem = self.cellConfig?.filter({$0.title == self.currentSelectOptionItem?.title}) {
+            print(needUpdateItem.first?.title ?? "")
+            needUpdateItem.first?.defultValue = sender.value.rounded()
+            self.optionItemsCollectView.itemsCollectionview.reloadData()
+        }
     }
 }
 
@@ -204,3 +255,5 @@ extension CameraViewController : MediaOperatorDelegate {
         self.photoDisplay.image = image
     }
 }
+
+

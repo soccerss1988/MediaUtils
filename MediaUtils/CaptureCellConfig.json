@@ -1,68 +1,64 @@
 {
-"optionCellConfig": [
-{
-"title": "WB",
-"type": "main",
-"defultValue": 5000,
-"minValue": 0,
-"maxValue": 0,
-"valueIndex" :[]
-},
-{
-"title": "WB",
-"type": "sub",
-"defultValue": 5000,
-"minValue": 3000,
-"maxValue": 9000,
-"valueIndex" :[3000,4000,5000,6000,7000,8000,9000]
-},
-{
-"title": "shutter",
-"type": "main",
-"defultValue": 0,
-"minValue": 0,
-"maxValue": 0,
-"valueIndex" :[]
-},
-{
-"title": "shutter",
-"type": "sub",
-"defultValue": 125,
-"minValue": 22,
-"maxValue": 300000,
-"valueIndex" :[50,100,200,400,800]
-},
-{
-"title": "ISO",
-"type": "main",
-"defultValue": 200,
-"minValue": 0,
-"maxValue": 0,
-"valueIndex" :[]
-},
-{
-"title": "ISO",
-"type": "sub",
-"defultValue": 200,
-"minValue": 50,
-"maxValue": 800,
-"valueIndex" :[50,100,200,400,800]
-},
-{
-"title": "EV",
-"type": "main",
-"defultValue": 0,
-"minValue": 0,
-"maxValue": 0,
-"valueIndex" :[]
-},
-{
-"title": "EV",
-"type": "sub",
-"defultValue": 0,
-"minValue": -3,
-"maxValue": 3,
-"valueIndex" :[-3,-2,-1,0,1,2,3]
-}
-]
+  "optionCellConfig": [
+    {
+      "title": "WB",
+      "type": "sub",
+      "defultValue": 5000,
+      "minValue": 3000,
+      "maxValue": 9000,
+      "valueIndex": [
+        3000,
+        4000,
+        5000,
+        6000,
+        7000,
+        8000,
+        9000
+      ]
+    },
+    {
+      "title": "S",
+      "type": "sub",
+      "defultValue": 125,
+      "minValue": 22,
+      "maxValue": 300000,
+      "valueIndex": [
+        50,
+        100,
+        200,
+        400,
+        800
+      ]
+    },
+    {
+      "title": "ISO",
+      "type": "sub",
+      "defultValue": 200,
+      "minValue": 50,
+      "maxValue": 800,
+      "valueIndex": [
+        50,
+        100,
+        200,
+        400,
+        800
+      ]
+    },
+    {
+      "title": "EV",
+      "type": "sub",
+      "defultValue": 0,
+      "minValue": -3,
+      "maxValue": 3,
+      "valueIndex": [
+        -3,
+        -2,
+        -1,
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  ]
 }

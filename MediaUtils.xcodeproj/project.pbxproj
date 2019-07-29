@@ -27,6 +27,10 @@
 		09BF72F022E3212B00EAC931 /* CaptureOptionSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BF72EE22E3212B00EAC931 /* CaptureOptionSliderCell.swift */; };
 		09BF72F122E3212B00EAC931 /* CaptureOptionSliderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09BF72EF22E3212B00EAC931 /* CaptureOptionSliderCell.xib */; };
 		09BF72F422E34CBF00EAC931 /* CaptureCellConfig.json in Resources */ = {isa = PBXBuildFile; fileRef = 09BF72F322E34CBF00EAC931 /* CaptureCellConfig.json */; };
+		09CB065022ED980D006538A3 /* OptionsSettingVIewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CB064F22ED980D006538A3 /* OptionsSettingVIewController.swift */; };
+		09CB065222ED9826006538A3 /* OptionsItemsCollectionview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CB065122ED9826006538A3 /* OptionsItemsCollectionview.swift */; };
+		09CB065422EF39A5006538A3 /* OptionColCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CB065322EF39A5006538A3 /* OptionColCell.swift */; };
+		09CB065F22EF4A58006538A3 /* OptionColCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09CB065E22EF4A58006538A3 /* OptionColCell.xib */; };
 		09F29FC322EA0B27005C82EA /* CaptureSettingOperator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F29FC222EA0B27005C82EA /* CaptureSettingOperator.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +87,10 @@
 		09BF72EE22E3212B00EAC931 /* CaptureOptionSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureOptionSliderCell.swift; sourceTree = "<group>"; };
 		09BF72EF22E3212B00EAC931 /* CaptureOptionSliderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CaptureOptionSliderCell.xib; sourceTree = "<group>"; };
 		09BF72F322E34CBF00EAC931 /* CaptureCellConfig.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = CaptureCellConfig.json; path = MediaUtils/CaptureCellConfig.json; sourceTree = SOURCE_ROOT; };
+		09CB064F22ED980D006538A3 /* OptionsSettingVIewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsSettingVIewController.swift; sourceTree = "<group>"; };
+		09CB065122ED9826006538A3 /* OptionsItemsCollectionview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsItemsCollectionview.swift; sourceTree = "<group>"; };
+		09CB065322EF39A5006538A3 /* OptionColCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionColCell.swift; sourceTree = "<group>"; };
+		09CB065E22EF4A58006538A3 /* OptionColCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionColCell.xib; sourceTree = "<group>"; };
 		09F29FC222EA0B27005C82EA /* CaptureSettingOperator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureSettingOperator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +107,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		092F3A7D22EC3B82009D9645 /* OptionTabaleView */ = {
+			isa = PBXGroup;
+			children = (
+				09BF72E222E31FD100EAC931 /* CaptureOptionTableview.swift */,
+				09BF72E522E31FD100EAC931 /* CaptureOptionTableview.xib */,
+				09BF72EA22E3202E00EAC931 /* CaptureOptionCell.swift */,
+				09BF72EB22E3202E00EAC931 /* CaptureOptionCell.xib */,
+				09BF72EE22E3212B00EAC931 /* CaptureOptionSliderCell.swift */,
+				09BF72EF22E3212B00EAC931 /* CaptureOptionSliderCell.xib */,
+			);
+			path = OptionTabaleView;
+			sourceTree = "<group>";
+		};
 		0966FC1E22B7C25D0025D732 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +160,8 @@
 				0966FC2C22B7C25D0025D732 /* CameraViewController.swift */,
 				0966FC3D22B7C4680025D732 /* VideoViewController.swift */,
 				0966FC3F22B7C4820025D732 /* AudioViewController.swift */,
+				09CB064F22ED980D006538A3 /* OptionsSettingVIewController.swift */,
+				09CB065122ED9826006538A3 /* OptionsItemsCollectionview.swift */,
 			);
 			path = VIewControllers;
 			sourceTree = "<group>";
@@ -155,14 +178,11 @@
 		09B7CC1D22DF65780012D838 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				09BF72E222E31FD100EAC931 /* CaptureOptionTableview.swift */,
-				09BF72E522E31FD100EAC931 /* CaptureOptionTableview.xib */,
+				09CB065322EF39A5006538A3 /* OptionColCell.swift */,
+				09CB065E22EF4A58006538A3 /* OptionColCell.xib */,
 				09B7CC1E22DF65A60012D838 /* FlashModeBar.swift */,
 				09B7CC2022DF65BB0012D838 /* FlashModeBar.xib */,
-				09BF72EA22E3202E00EAC931 /* CaptureOptionCell.swift */,
-				09BF72EB22E3202E00EAC931 /* CaptureOptionCell.xib */,
-				09BF72EE22E3212B00EAC931 /* CaptureOptionSliderCell.swift */,
-				09BF72EF22E3212B00EAC931 /* CaptureOptionSliderCell.xib */,
+				092F3A7D22EC3B82009D9645 /* OptionTabaleView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -276,6 +296,7 @@
 			files = (
 				09BF72F422E34CBF00EAC931 /* CaptureCellConfig.json in Resources */,
 				0966FC3522B7C25F0025D732 /* LaunchScreen.storyboard in Resources */,
+				09CB065F22EF4A58006538A3 /* OptionColCell.xib in Resources */,
 				09BF72ED22E3202E00EAC931 /* CaptureOptionCell.xib in Resources */,
 				09BF72F122E3212B00EAC931 /* CaptureOptionSliderCell.xib in Resources */,
 				09B7CC2122DF65BB0012D838 /* FlashModeBar.xib in Resources */,
@@ -292,10 +313,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09CB065222ED9826006538A3 /* OptionsItemsCollectionview.swift in Sources */,
+				09CB065422EF39A5006538A3 /* OptionColCell.swift in Sources */,
 				09BF72E922E3200700EAC931 /* CaptureOptionalUnit.swift in Sources */,
 				0966FC2D22B7C25D0025D732 /* CameraViewController.swift in Sources */,
 				0966FC4022B7C4820025D732 /* AudioViewController.swift in Sources */,
 				0966FC2B22B7C25D0025D732 /* AppDelegate.swift in Sources */,
+				09CB065022ED980D006538A3 /* OptionsSettingVIewController.swift in Sources */,
 				0966FC3E22B7C4680025D732 /* VideoViewController.swift in Sources */,
 				09F29FC322EA0B27005C82EA /* CaptureSettingOperator.swift in Sources */,
 				09B7CC1F22DF65A60012D838 /* FlashModeBar.swift in Sources */,
