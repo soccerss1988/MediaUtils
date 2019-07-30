@@ -19,7 +19,7 @@
     {
       "title": "S",
       "type": "sub",
-      "defultValue": 125,
+      "defultValue": 7000,
       "minValue": 22,
       "maxValue": 300000,
       "valueIndex": [
@@ -48,16 +48,26 @@
       "title": "EV",
       "type": "sub",
       "defultValue": 0,
-      "minValue": -3,
-      "maxValue": 3,
+      "minValue": -8,
+      "maxValue": 8,
       "valueIndex": [
+        -8,
+        -7,
+        -6,
+        -5,
+        -4,
         -3,
         -2,
         -1,
         0,
         1,
         2,
-        3
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
       ]
     }
   ]

@@ -12,7 +12,7 @@ import ImageIO
 import CoUtiles
 
 
-class CameraViewController: UIViewController {
+public class CameraViewController: UIViewController {
     
     @IBOutlet weak var photoDisplay: UIImageView!
     @IBOutlet weak var preview: UIView!
@@ -56,7 +56,7 @@ class CameraViewController: UIViewController {
         return  nil
     }()
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         self.preview.layer.insertSublayer(self.mediaOperator.previewLayer, at: 0)
@@ -64,8 +64,7 @@ class CameraViewController: UIViewController {
         self.mediaOperator.delegate = self
         self.flashModeView.isHidden = true
         self.settingOptionItems()
-        
-        //        self.test()
+        self.settingCustomCarmera()
     }
     
     func captureButtonStyle() {
@@ -74,17 +73,17 @@ class CameraViewController: UIViewController {
         self.captureButton.layer.borderColor = UIColor.darkGray.cgColor
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override public func viewDidAppear(_ animated: Bool) {
         self.mediaOperator.startCapture()
     }
     
-    override func viewDidLayoutSubviews() {
+    override public func viewDidLayoutSubviews() {
         self.mediaOperator.previewLayer.frame = self.preview.bounds
         self.optionSettingVC.view.frame = self.optionSettingContainer.bounds
         self.optionItemsCollectView.view.frame = self.optionItemContainer.bounds
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override public func viewDidDisappear(_ animated: Bool) {
         self.mediaOperator.stopCapture()
     }
     
@@ -150,6 +149,26 @@ class CameraViewController: UIViewController {
     self.optionItemsCollectView.itemsCollectionview.reloadData()
     self.optionItemsCollectView.deleaget = self
 
+    }
+    
+    func settingCustomCarmera() {
+        if let customItems = self.cellConfig {
+            
+            for items in customItems {
+                switch items.title {
+                case "ISO":
+                    self.mediaOperator.captureSetting.iso = items.defultValue
+                case "S":
+                    self.mediaOperator.captureSetting.shutt = CMTimeMake(value: Int64(items.defultValue), timescale: 1000000)
+                case "EV":
+                    self.mediaOperator.captureSetting.ev = items.defultValue
+                case "WB":
+                    self.mediaOperator.captureSetting.k = items.defultValue
+                default:
+                    break
+                }
+            }
+        }
     }
     
     //    func test() {
@@ -246,12 +265,56 @@ extension CameraViewController : FlashModeBarDelegate, OptionsItemsCollectionvie
             print(needUpdateItem.first?.title ?? "")
             needUpdateItem.first?.defultValue = sender.value.rounded()
             self.optionItemsCollectView.itemsCollectionview.reloadData()
+            switch needUpdateItem.first?.title ?? "" {
+            case "ISO":
+                self.mediaOperator.captureSetting.iso = needUpdateItem.first?.defultValue ?? 0
+            case "S":
+                let int64Value = Int64(needUpdateItem.first?.defultValue ?? 0)
+                self.mediaOperator.captureSetting.shutt =  CMTimeMake(value: int64Value, timescale: 1000000)
+            case "EV":
+                self.mediaOperator.captureSetting.ev = needUpdateItem.first?.defultValue ?? 0
+            case "WB":
+                self.mediaOperator.captureSetting.k = needUpdateItem.first?.defultValue ?? 0
+            default:
+                break
+            }
         }
+        self.setCustomCameraExposuer()
     }
+    
+    //    func setCustomCameraExposuer(iso: Float, shutter : CMTime, ev: Float, wb: AVCaptureDevice.WhiteBalanceGains) {
+    func setCustomCameraExposuer() {
+        do {
+            try self.mediaOperator.currentInputDevice?.lockForConfiguration()
+            //change cutoms value here
+            let shutter = self.mediaOperator.captureSetting.shutt
+            let iso = self.mediaOperator.captureSetting.iso
+            let ev = self.mediaOperator.captureSetting.ev
+            let k = self.mediaOperator.captureSetting.k
+            
+            //setting exposure
+            self.mediaOperator.currentInputDevice?.setExposureModeCustom(duration:shutter , iso: iso, completionHandler: nil)
+            
+            //setting ev
+            self.mediaOperator.currentInputDevice?.setExposureTargetBias(ev, completionHandler: nil)
+            
+            //setting K
+            let temperatureAndTintValues = AVCaptureDevice.WhiteBalanceTemperatureAndTintValues(temperature: k, tint: 0)
+            if let deviceGains = self.mediaOperator.currentInputDevice?.deviceWhiteBalanceGains(for: temperatureAndTintValues) {
+                self.mediaOperator.currentInputDevice?.setWhiteBalanceModeLocked(with: deviceGains, completionHandler: nil)
+            }
+            
+            self.mediaOperator.currentInputDevice?.unlockForConfiguration()
+        } catch {
+            print("lock faild!! can not change value")
+        }
+        
+    }
+    
 }
 
 extension CameraViewController : MediaOperatorDelegate {
-    func receveCapturePhoto(image: UIImage) {
+   public func receveCapturePhoto(image: UIImage) {
         self.photoDisplay.image = image
     }
 }

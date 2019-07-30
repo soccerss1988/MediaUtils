@@ -16,7 +16,8 @@ private class Unitkeys {
     static let valueIndex       = "valueIndex"
 }
 
-class CaptureOptionalUnit: NSObject {
+
+open class CaptureOptionalUnit: NSObject {
     var title : String
     var type : String
     var defultValue : Float = 0
